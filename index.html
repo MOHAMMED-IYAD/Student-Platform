@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="منصة الطالب الفلسطيني للدراسة بطريقة مرتبة وتفاعلية.">
+  <title>منصة الطالب الفلسطيني</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f7f6;
+      --card: rgba(255, 255, 255, .82);
+      --text: #10201c;
+      --muted: #65736f;
+      --accent: #176b5b;
+      --accent-2: #0f574a;
+      --border: rgba(23, 107, 91, .13);
+      --shadow: 0 28px 80px rgba(20, 48, 42, .10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "IBM Plex Sans Arabic", "Cairo", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(23, 107, 91, .12), transparent 28%),
+        radial-gradient(circle at 88% 20%, rgba(23, 107, 91, .08), transparent 25%),
+        linear-gradient(145deg, #f8faf9, var(--bg));
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    header {
+      padding: 26px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: var(--text);
+      color: white;
+      font-family: "Cairo";
+      font-weight: 900;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: .7rem;
+      font-weight: 500;
+    }
+
+    .credit {
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .milr-link {
+      color: var(--accent);
+      font-weight: 800;
+      transition: .3s ease;
+    }
+
+    .milr-link:hover {
+      color: var(--accent-2);
+    }
+
+    .hero {
+      min-height: calc(100vh - 94px);
+      display: grid;
+      place-items: center;
+      padding: 50px 0 90px;
+    }
+
+    .hero-inner {
+      width: min(900px, 100%);
+      text-align: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .62);
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 700;
+      box-shadow: 0 8px 30px rgba(20, 48, 42, .05);
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    h1 {
+      margin: 22px 0 12px;
+      font-family: "Cairo";
+      font-size: clamp(2.5rem, 7vw, 5.4rem);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .name {
+      margin: 0 auto 14px;
+      font-family: "Cairo";
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    .name-link {
+      color: var(--accent);
+      font-weight: 800;
+      transition: .3s ease;
+    }
+
+    .name-link:hover {
+      color: var(--accent-2);
+    }
+
+    .lead {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--muted);
+      line-height: 2;
+      font-size: clamp(.95rem, 2vw, 1.08rem);
+    }
+
+    .choice-title {
+      margin: 42px 0 15px;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .branches {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .branch {
+      position: relative;
+      overflow: hidden;
+      text-align: right;
+      min-height: 145px;
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+      backdrop-filter: blur(15px);
+    }
+
+    .branch:hover {
+      transform: translateY(-6px);
+      border-color: rgba(23, 107, 91, .35);
+      box-shadow: 0 35px 90px rgba(20, 48, 42, .15);
+    }
+
+    .branch::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      left: -35px;
+      bottom: -65px;
+      background: rgba(23, 107, 91, .07);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: rgba(23, 107, 91, .09);
+      color: var(--accent);
+      font-family: "Cairo";
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: 19px;
+    }
+
+    .branch h2 {
+      margin: 0 0 5px;
+      font-family: "Cairo";
+      font-size: 1.12rem;
+    }
+
+    .branch p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .77rem;
+      line-height: 1.7;
+    }
+
+    .arrow {
+      position: absolute;
+      left: 21px;
+      bottom: 20px;
+      color: var(--accent);
+      font-size: 1.2rem;
+      transition: transform .25s;
+    }
+
+    .branch:hover .arrow {
+      transform: translateX(-5px);
+    }
+
+    .soon {
+      opacity: .66;
+      cursor: default;
+    }
+
+    .soon:hover {
+      transform: none;
+      box-shadow: var(--shadow);
+      border-color: var(--border);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .feature {
+      padding: 15px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, .5);
+      color: var(--muted);
+      font-size: .73rem;
+    }
+
+    .feature strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 4px;
+      font-family: "Cairo";
+    }
+
+    footer {
+      padding: 25px 0 35px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      color: var(--muted);
+      font-size: .7rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .milr-link {
+      color: var(--accent);
+      font-weight: 800;
+      transition: .3s ease;
+    }
+
+    .milr-link:hover {
+      color: var(--accent-2);
+    }
+
+    @media (max-width:720px) {
+      .page {
+        width: min(100% - 24px, 1180px);
+      }
+
+      header {
+        padding: 18px 0;
+      }
+
+      .credit {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 65px 0 55px;
+      }
+
+      .branches {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <a class="brand" href="index.html">
+        <span class="brand-mark">م</span>
+        <span>منصة الطالب<small>المنهج الفلسطيني</small></span>
+      </a>
+      <span class="credit">
+        إنشاء وتطوير · محمود عبد العزيز محمد ابو بكرة +
+        <a href="https://mi-lr.netlify.app/" target="_blank" class="milr-link">MILR</a>
+      </span>
+    </header>
+
+    <main class="hero">
+      <div class="hero-inner">
+        <span class="pill"><span class="dot"></span> منصة دراسية تفاعلية</span>
+
+        <div class="name">
+          محمود عبد العزيز محمد ابو بكرة +
+          <a href="https://mi-lr.netlify.app/" target="_blank" class="name-link">MILR</a>
+        </div>
+
+        <h1>طريقك إلى <span>فهم</span><br>المنهج الفلسطيني</h1>
+        <p class="lead">اختر فرعك الدراسي وابدأ رحلة دراسة مرتبة، واضحة ومريحة — من الشرح إلى التدريب ومتابعة التقدم.
+        </p>
+
+        <div class="choice-title">اختر فرعك الدراسي</div>
+        <div class="branches">
+          <a class="branch" href="literary.html">
+            <div class="icon">ع</div>
+            <h2>الفرع الأدبي</h2>
+            <p>اللغة العربية · الصف الحادي عشر · الفصل الأول</p>
+            <span class="arrow">←</span>
+          </a>
+
+          <div class="branch soon">
+            <div class="icon">⌬</div>
+            <h2>الفرع العلمي</h2>
+            <p>المواد العلمية والتخصصية — قادمًا</p>
+            <span class="arrow">←</span>
+          </div>
+        </div>
+
+        <div class="features">
+          <div class="feature"><strong>📖 شرح مرتب</strong>الدروس بطريقة واضحة</div>
+          <div class="feature"><strong>✍️ تدريب</strong>تطبيق بعد كل درس</div>
+          <div class="feature"><strong>📊 تقدمك</strong>حفظ تلقائي للتقدم</div>
+          <div class="feature"><strong>🌙 مريح</strong>تجربة دراسة هادئة</div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <span>© 2026 منصة الطالب الفلسطيني</span>
+      <span>
+        تم إنشاء وتطوير الموقع بواسطة محمود عبد العزيز محمد ابو بكرة +
+        <a href="https://mi-lr.netlify.app/" target="_blank" class="milr-link">MILR</a>
+      </span>
+    </footer>
+  </div>
+</body>
+
+</html>

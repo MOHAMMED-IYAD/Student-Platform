@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="منصة دراسية تفاعلية لقواعد وعروض اللغة العربية للصف الحادي عشر الأدبي - الفصل الأول">
+  <title>عربي 11 — اللغة العربية للصف الحادي عشر الأدبي | الحادي عشر الأدبي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress-line"><span id="readingProgress"></span></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="الصفحة الرئيسية">
+      <span class="brand-mark">ع</span>
+      <span>
+        <strong>عربي 11</strong>
+        <small>الحادي عشر الأدبي</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="التنقل الرئيسي">
+      <a href="#lessons">الدروس</a>
+      <a href="#quick-review">مراجعة</a>
+      <button id="themeToggle" class="icon-btn" type="button" aria-label="تبديل الوضع">☾</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-content reveal">
+        <span class="eyebrow">اللغة العربية · الصف الحادي عشر · الفصل الأول</span>
+        <h1>افهم القاعدة،<br><span>ولا تحفظها فقط.</span></h1>
+        <p>مرجع تفاعلي مرتب لدروس القواعد والعروض للصف الحادي عشر الأدبي، بأسلوب واضح ومريح للمراجعة.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#lessons">ابدأ الدراسة <span>←</span></a>
+          <a class="ghost-btn" href="#quick-review">مراجعة سريعة</a>
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <div class="hero-card-top">
+          <span>الفصل الأول</span>
+          <span class="status-dot">● جاهز للدراسة</span>
+        </div>
+        <div class="hero-stat"><strong>9</strong><span>موضوعات أساسية</span></div>
+        <div class="mini-progress"><span style="width:0%" id="heroProgress"></span></div>
+        <small id="heroProgressText">ابدأ أول درس</small>
+      </div>
+    </section>
+
+    <section class="section" id="lessons">
+      <div class="section-heading reveal">
+        <div>
+          <span class="eyebrow">المحتوى</span>
+          <h2>دروس الفصل الأول</h2>
+        </div>
+        <div class="search-wrap">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="ابحث عن درس أو قاعدة..." autocomplete="off">
+        </div>
+      </div>
+
+      <div class="lesson-grid" id="lessonGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>لم نجد درسًا بهذا الاسم.</p>
+    </section>
+
+    <section class="section review-section" id="quick-review">
+      <div class="section-heading reveal">
+        <div>
+          <span class="eyebrow">راجع نفسك</span>
+          <h2>مراجعة سريعة</h2>
+        </div>
+        <span class="review-count" id="reviewCount"></span>
+      </div>
+      <div id="quizBox" class="quiz-box reveal"></div>
+    </section>
+
+    <section class="section notes-section">
+      <div class="note-card reveal">
+        <span class="note-icon">!</span>
+        <div>
+          <h3>ملاحظة عن المحتوى</h3>
+          <p>الموقع منظم على أساس كتاب اللغة العربية (المطالعة والقواعد والعروض والتعبير) للصف الحادي عشر، الفصل الأول. الشرح هنا صياغة تعليمية أصلية ومختصرة، وليس نسخًا حرفيًا من صفحات الكتاب.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>عربي 11</strong>
+      <span>منصة دراسية تفاعلية</span>
+    </div>
+    <div class="footer-credit">
+      <span>تم إنشاء وتطوير الموقع بواسطة</span>
+      <strong>محمود عبد العزيز محمد ابو بكرة</strong>
+    </div>
+    <span>© 2026</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
